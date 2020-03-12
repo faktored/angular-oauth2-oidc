@@ -1179,8 +1179,8 @@ to transmit the access_token to a service</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2110"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2115"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2115</a></div>
                 </td>
             </tr>
 
@@ -1292,8 +1292,8 @@ to transmit the access_token to a service</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2120"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2125"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2125</a></div>
                 </td>
             </tr>
 
@@ -1567,8 +1567,8 @@ to transmit the access_token to a service</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2180"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2180</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2185"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2185</a></div>
                 </td>
             </tr>
 
@@ -1744,8 +1744,8 @@ to transmit the access_token to a service</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2078"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2078</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2083"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2083</a></div>
                 </td>
             </tr>
 
@@ -2810,8 +2810,8 @@ as milliseconds since 1970.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2150"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2150</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2155"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2155</a></div>
                 </td>
             </tr>
 
@@ -3170,8 +3170,8 @@ parameter loginHint (for the sake of compatibility with former versions)</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="2135"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:2135</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="2140"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:2140</a></div>
                 </td>
             </tr>
 
@@ -3636,15 +3636,15 @@ Otherwise stricter validations take place that make this operation fail.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logOut(noRedirectToLogoutUrl)</code>
+                    <code>logOut(noRedirectToLogoutUrl, state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="1996"
-                            class="link-to-prism">projects/lib/src/oauth-service.ts:1996</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="1997"
+                            class="link-to-prism">projects/lib/src/oauth-service.ts:1997</a></div>
                 </td>
             </tr>
 
@@ -3653,7 +3653,7 @@ Otherwise stricter validations take place that make this operation fail.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>Removes all tokens and logs the user out.
 If a logout url is configured, the user is
-redirected to it.</p>
+redirected to it with optional state parameter.</p>
 </div>
 
                     <div class="io-description">
@@ -3662,6 +3662,7 @@ redirected to it.</p>
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
                                 </tr>
@@ -3669,6 +3670,8 @@ redirected to it.</p>
                             <tbody>
                                 <tr>
                                     <td>noRedirectToLogoutUrl</td>
+                                    <td>
+                                    </td>
 
                                     <td>
                                         No
@@ -3676,6 +3679,21 @@ redirected to it.</p>
 
                                     <td>
                                         <code>false</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
                                     </td>
 
                                 </tr>
@@ -9990,10 +10008,11 @@ export class OAuthService extends AuthConfig implements OnDestroy {
     /**
      * Removes all tokens and logs the user out.
      * If a logout url is configured, the user is
-     * redirected to it.
+     * redirected to it with optional state parameter.
      * @param noRedirectToLogoutUrl
+     * @param state
      */
-    public logOut(noRedirectToLogoutUrl &#x3D; false): void {
+    public logOut(noRedirectToLogoutUrl &#x3D; false, state &#x3D; &#x27;&#x27;): void {
         const id_token &#x3D; this.getIdToken();
         this._storage.removeItem(&#x27;access_token&#x27;);
         this._storage.removeItem(&#x27;id_token&#x27;);
@@ -10046,6 +10065,10 @@ export class OAuthService extends AuthConfig implements OnDestroy {
             const postLogoutUrl &#x3D; this.postLogoutRedirectUri || this.redirectUri;
             if (postLogoutUrl) {
                 params &#x3D; params.set(&#x27;post_logout_redirect_uri&#x27;, postLogoutUrl);
+
+                if (state) {
+                    params &#x3D; params.set(&#x27;state&#x27;, state);
+                }
             }
 
             logoutUrl &#x3D;
